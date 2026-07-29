@@ -1,4 +1,15 @@
 from src.pdf_reader import extract_text_from_pdf
+import nltk
+import streamlit as st
+
+@st.cache_resource
+def download_nltk():
+    nltk.download("stopwords")
+    nltk.download("punkt")
+    nltk.download("punkt_tab")
+
+download_nltk()
+
 from src.preprocess import preprocess_text
 from src.ranking import rank_resume
 
